@@ -1,0 +1,16 @@
+label {
+  display: block;
+}
+
+.body form .form-row {
+  margin-bottom: 20px;
+}
+
+.body form .input-text {
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.body form button {
+  padding: 10px 20px;
+}

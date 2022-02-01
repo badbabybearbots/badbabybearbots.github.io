@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Get Whitelisted! - Bad Baby Bear Bots</title>
+    <meta property="og:title" content="Bad Baby Bear Bots" />
+    <meta property="og:image" content="https://www.badbabybearbots.com/images/banner.png" />
+    <meta property="og:url" content="https://www.badbabybearbots.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A DAOFI powered collection of 10,000 unique bear bots on the Ethereum blockchain. Own a one and collect rewards." />
+    <meta name="msapplication-TileColor" content="#e4e4a7" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="/fonts/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/theme.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/get-whitelisted.css" />
+  </head>
+  <body>
+    <header class="head">
+      <a class="logo" href="/">
+        <img src="/images/logo-bbbb-text.png" height="26" />
+      </a>
+      <nav>
+        <a class="cta" href="/get-whitelisted.html">
+          Get Whitelisted
+        </a>
+        <a href="/updates.html">
+          Updates
+        </a>
+        <a href="https://docs.google.com/document/d/1WOZT4IzW9-pRdN9mGkqC4G8YFxXeuy-m9QvMcNw4_sE" target="_blank">
+          White Paper
+        </a>
+        <a class="icon" href="https://github.com/bad-baby-bear-bots/contracts" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </nav>
+    </header>
+    <main class="body">
+      <h1>Get Whitelisted</h1>
+      <p>
+        Thanks for being interested in this project so early! We need 
+        your wallet address to generate a cyrptograpic message that 
+        authorizes you to purchase during the private sale. And we need 
+        your Twitter or Discord so we can send you the message.
+      </p>
+      <form id="google-form" method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSetCYRLNja0YyBEo_BawfXnwdb5DVdsdoqWVtU4mDuj8oaP9Q/formResponse" target="google-frame">
+        <div class="form-row">
+          <label>Wallet Address</label>
+          <input class="input-text input-wallet" required type="text" name="entry.1805306515" placeholder="0xabcd1234efg..." />
+        </div>
+        <div class="form-row">
+          <label>Twitter Name</label>
+          <input class="input-text input-twitter" type="text" name="entry.495331265" placeholder="@username" />
+        </div>
+        <div class="form-row">
+          <label>Discord Name</label>
+          <input class="input-text input-discord" type="text" name="entry.484241090" placeholder="username#1234" />
+        </div>
+        <input type="hidden" name="dsdoc" value="true" />
+        <input type="hidden" name="fvv" value="1" />
+        <input type="hidden" name="pageHistory" value="0" />
+        <input type="hidden" name="fbzx" value="-7883342852725994740" />
+        <input type="hidden" name="partialResponse" value='[null,null,"-7883342852725994740"]' />
+        <button type="submit" disabled>Submit</button>
+        <p id="success" style="display: none;">Form submitted successfully. Thank You!</p>
+        <p>Hit me up on <a href="https://twitter.com/badbabybearbot" target="_blank">Twitter</a> for questions.</p>
+      </form>
+    </main>
+    <footer class="foot"></footer>
+    <iframe id="google-frame" name="google-frame" src="/_blank.html" style="display: none;"></iframe>
+    <script type="text/javascript" src="/scripts/get-whitelisted.js"></script>
+  </body>
+</html>

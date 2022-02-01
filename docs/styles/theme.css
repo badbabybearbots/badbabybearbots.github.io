@@ -1,0 +1,104 @@
+html, body {
+  background-color: #222222;
+  color: #FFFFFF;
+  font-family: "Open Sans", Arial;
+}
+
+a, a:hover, a:active, a:visited {
+  color: #FFFFFF;
+}
+
+hr {
+  border-color: #555555;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  color: #CCCCCC;
+  font-size: 13px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-width: 900px;
+  padding: 20px 0;
+}
+
+.head .logo {
+  display: block;
+  height: 26px;
+}
+
+.head nav {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.head nav a {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.head nav .icon {
+  font-size: 24px;
+}
+
+.head nav a.cta {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.body {
+  margin: auto;
+  max-width: 900px;
+}
+
+.body h1 {
+  text-transform: uppercase;
+}
+
+.body p {
+  color: #CCCCCC;
+  font-size: 13px;
+  line-height: 26px;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.foot {
+  margin: auto;
+  max-width: 1000px;
+  padding-top: 40px;
+}
+
+@media(max-width: 420px) {
+  .head {
+    display: block;
+    padding: 10px;
+  }
+  
+  .head nav {
+    display: block;
+    text-align: left;
+  }
+
+  .head nav a:first-child{
+    margin-left: 0;
+  }
+
+  .body {
+    padding: 10px;
+  }
+}
