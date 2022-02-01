@@ -8,7 +8,7 @@ label {
 
 .body form .input-text {
   padding: 10px 15px;
-  width: 100%;
+  width: calc(100% - 35px);
 }
 
 .body form button {
