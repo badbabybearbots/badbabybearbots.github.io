@@ -8,6 +8,27 @@ a, a:hover, a:active, a:visited {
   color: #FFFFFF;
 }
 
+blockquote {
+  border-left: 5px solid #EFEFEF;
+  color: #EFEFEF;
+  line-height: 26px;
+  margin: 10px 0;
+  padding: 5px 20px;
+}
+
+code {
+  background: #000000;
+  display: inline-block;
+  padding: 2px 5px;
+}
+
+pre code {
+  background: #000000;
+  display: block;
+  line-height: 24px;
+  padding: 0 20px;
+}
+
 hr {
   border-color: #555555;
 }
@@ -21,6 +42,39 @@ li {
   font-size: 13px;
   line-height: 26px;
   margin-bottom: 10px;
+}
+
+.text-success {
+  color: #06a700
+}
+
+.text-warning {
+  color: #c59100
+}
+
+.text-danger {
+  color: #c20f02
+}
+
+.table {
+  border: 1px solid #AAAAAA;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.table th {
+  background-color: #CCCCCC;
+  color: #222222;
+  padding: 20px 5px;
+}
+
+.table td {
+  padding: 20px 5px;
+}
+
+.table.center th,
+.table.center td {
+  text-align: center;
 }
 
 .head {

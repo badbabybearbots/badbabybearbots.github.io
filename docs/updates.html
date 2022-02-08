@@ -43,13 +43,20 @@
         <a class="icon" href="https://github.com/bad-baby-bear-bots/contracts" target="_blank">
           <i class="fab fa-github"></i>
         </a>
+        <a class="icon" href="https://twitter.com/badbabybearbot" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
       </nav>
     </header>
     <main class="body">
       <h1>Updates</h1>
       <section class="nav-left">
         <aside id="nav-update">
-          <a class="active" href="#content-02012022">
+          <a class="active" href="#content-02092022">
+            <em>02.09.2021</em>
+            <span>Introducing ERC721B</span>
+          </a>
+          <a href="#content-02012022">
             <em>02.01.2021</em>
             <span>White Paper Draft V2</span>
           </a>
@@ -71,7 +78,338 @@
           </a>
         </aside>
         <main>
-          <div id="content-02012022" class="content active">
+          <div id="content-02092022" class="content active">
+            <em>02.09.2021</em>
+            <h2>
+              INTRODUCING ERC721B: AN IMPROVEMENT ON THE ERC721A 
+              IMPLEMENTATION
+            </h2>
+            <p>
+              In coordination with the blockchain teams from 
+              <a href="https://www.badbabybearbots.com/" 
+              target="_blank">Bad Baby Bear Bots</a>,
+
+              <a href="https://gry.ph/" 
+              target="_blank">GRYPH</a>,
+
+              <a href="http://www.arkofdreams.io/" 
+              target="_blank">Ark of Dreams</a> and
+
+              <a href="https://www.gratitudenft.com/" 
+              target="_blank">Gratitude NFT</a>
+              and other NFT projects all upcoming projects this year.
+            </p>
+            <hr />
+            <h3>TL;DR</h3>
+            <ul>
+              <li>
+                ERC721B is an implementation of IERC721 with significant 
+                gas savings for minting multiple NFTs in a single 
+                transaction.
+              </li>
+              <li>
+                ERC721B is like ERC721A except without all the side effects.
+              </li>
+              <li>
+                The BBBB contract will enable minting multiple NFTs for 
+                essentially the same cost of minting a single NFT.
+              </li>
+              <li>
+                B comes after A in ERC721A and B in ERC721B stands for 
+                Bad Baby Bear Bots :)
+              </li>
+            </ul>
+            <hr />
+            <h3>Context</h3>
+            <p>
+              Gas prices on Ethereum have been consistently high for 
+              months, and the dev community needs to adapt. When popular 
+              NFT projects begin to mint, gas prices spike up, resulting 
+              in the entire ecosystem paying millions in gas fees to 
+              transact. The focus for the dev team has been to optimize 
+              our contract and enable our community to spend as little 
+              as possible in gas fees when minting.
+            </p>
+            <blockquote>  
+              The controversy <a href="https://github.com/chiru-labs/ERC721A" 
+              target="_blank">ERC721A</a> has certainly peeked interest 
+              in the community for achieving low mint costs for all, but 
+              had to sacrafice functionality and to increase gas costs 
+              in other places to do so.
+            </blockquote>
+            <p>
+              BBBB used OpenZeppelin's ERC721 as the base and implemented 
+              the intent of the ERC721A with very simple logic. 
+              Everything that works in ERC721 still works in ERC721B. 
+              We are excited to announce that the BBBB contract will 
+              enable minting multiple NFTs for essentially the same gas 
+              cost of minting a single NFT. ERC721B includes the 
+              following extensions.
+            </p>
+            <ul>
+              <li><strong>ERC721BBurnable</strong> - Ability for owners to burn tokens</li>
+              <li><strong>ERC721BPausable</strong> - Ability for admins to pause the contract</li>
+              <li><strong>ERC721BURIStorable</strong> - Ability to attach a URI to tokens</li>
+            </ul>
+            <hr />
+            <h3>Measurement</h3>
+            <p>
+              We've measured the gas costs and prices for minting, 
+              comparing OpenZeppelin's ERC721Enumerable vs ERC721A vs 
+              ERC721B. In our measurements, the same application-level 
+              logic is used, the only difference being the _safeMint 
+              function called.
+            </p>
+            
+            <table class="table center">
+              <thead>
+                <tr>
+                  <th><strong>Action</strong></th>
+                  <th><strong>ERC721</strong></th>
+                  <th><strong>ERC721A</strong></th>
+                  <th><strong>ERC721B</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Deploy</strong></td>
+                  <td class="text-success">1,212,149</td>
+                  <td class="text-danger">1,334,873</td>
+                  <td class="text-success">1,247,114</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 1</strong></td>
+                  <td class="text-danger">91,293</td>
+                  <td class="text-success">90,830</td>
+                  <td class="text-success">90,852</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 2</strong></td>
+                  <td class="text-danger">116,831</td>
+                  <td class="text-success">93,077</td>
+                  <td class="text-success">93,098</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 3</strong></td>
+                  <td class="text-danger">142,369</td>
+                  <td class="text-success">95,324</td>
+                  <td class="text-success">95,344</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 4</strong></td>
+                  <td class="text-danger">167,907</td>
+                  <td class="text-success">97,571</td>
+                  <td class="text-success">97,590</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 5</strong></td>
+                  <td class="text-danger">193,445</td>
+                  <td class="text-success">99,818</td>
+                  <td class="text-success">99,836</td>
+                </tr>
+                <tr>
+                  <td><strong>Transfer</strong></td>
+                  <td class="text-success">47,512</td>
+                  <td class="text-success">66,402</td>
+                  <td class="text-warning">50,656</td>
+                </tr>
+                <tr>
+                  <td><strong>Burn</strong></td>
+                  <td class="text-success">24,221</td>
+                  <td class="text-danger">Not Possible</td>
+                  <td class="text-warning">27,562</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              As well as the cost in USD assuming 300 gwei and $3500/ETH. 
+              These are just estimates, it's hard to predict the gas 
+              and eth price at time of mint <em>(currently 120 gwei at 
+              time of writing)</em>.
+            </p>
+
+            <table class="table center">
+              <thead>
+                <tr>
+                  <th><strong>Action</strong></th>
+                  <th><strong>ERC721</strong></th>
+                  <th><strong>ERC721A</strong></th>
+                  <th><strong>ERC721B</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Deploy</strong></td>
+                  <td class="text-success">$ 1,272.76</td>
+                  <td class="text-danger">$ 1,401.62</td>
+                  <td class="text-success">$ 1,309.47</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 1</strong></td>
+                  <td class="text-success">$ 95.86</td>
+                  <td class="text-success">$ 95.37</td>
+                  <td class="text-success">$ 95.39</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 2</strong></td>
+                  <td class="text-danger">$ 122.67</td>
+                  <td class="text-success">$ 97.73</td>
+                  <td class="text-success">$ 97.75</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 3</strong></td>
+                  <td class="text-danger">$ 149.49</td>
+                  <td class="text-success">$ 100.09</td>
+                  <td class="text-success">$ 100.11</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 4</strong></td>
+                  <td class="text-danger">$ 176.30</td>
+                  <td class="text-success">$ 102.45</td>
+                  <td class="text-success">$ 102.47</td>
+                </tr>
+                <tr>
+                  <td><strong>Mint 5</strong></td>
+                  <td class="text-danger">$ 203.12</td>
+                  <td class="text-success">$ 104.81</td>
+                  <td class="text-success">$ 104.83</td>
+                </tr>
+                <tr>
+                  <td><strong>Transfer</strong></td>
+                  <td class="text-success">$ 49.89</td>
+                  <td class="text-danger">$ 69.72</td>
+                  <td class="text-warning">$ 53.19</td>
+                </tr>
+                <tr>
+                  <td><strong>Burn</strong></td>
+                  <td class="text-success">$ 25.43</td>
+                  <td class="text-danger">Not Possible</td>
+                  <td class="text-warning">$ 28.94</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>How does it work?</h3>
+            <p>
+              Suppose Alice wanted to buy 3 tokens &mdash; token #100, #101, 
+              and #102. Instead of saving Alice as the owner 3 
+              times (each time costing us gas), we can instead save 
+              the owner value just once in a way that semantically 
+              implies that Alice owns all 3 of those tokens. The minting
+              code for batch minting can be simplified like this.
+            </p>
+            <pre><code>
+//batch mint:
+_lastTokenId += quantity;
+_balances[to] += quantity;
+_owners[startTokenId] = to;
+            </code></pre>
+            <p>
+              Where all we need to do is set the start token id and the 
+              owner's balance. Suppose Alice mints tokens #100, #101, 
+              and #102, and Bob mints tokens #103 and #104. The internal 
+              owner tracker would look like this.
+            </p>
+            <table class="table center">
+              <tr>
+                <th>
+                  #100
+                  <br />Owner:
+                  <br />Alice
+                </th>
+                <th>
+                  #101
+                  <br />Owner:
+                  <br />&lt;not set&gt;
+                </th>
+                <th>
+                  #102
+                  <br />Owner:
+                  <br />&lt;not set&gt;
+                </th>
+                <th>
+                  #103
+                  <br />Owner:
+                  <br />Bob
+                </th>
+                <th>
+                  #104
+                  <br />Owner:
+                  <br />&lt;not set&gt;
+                </th>
+              </tr>
+            </table>
+            <p>
+              The key here is that if we wanted to see who owned #102, 
+              we don't need to actually have Alice set explicitly as 
+              the explicit owner of #102 to do so. We could just change 
+              the <code>ownerOf</code> function to do the following.
+            </p>
+            <pre><code>
+//ownerOf:
+for (uint256 id = tokenId; id >= 0; id--) {
+  if (_owners[id] != address(0)) {
+    return _owners[id];
+  }
+}
+            </code></pre>
+            <p>
+              Then as more transfers are made, the <code>_owners</code> 
+              store would normalize back into the original ERC721 way of 
+              storing.
+            </p>
+            <pre><code>
+//transfer:
+_balances[from] -= 1;
+_balances[to] += 1;
+_owners[tokenId] = to;
+
+uint256 nextTokenId = tokenId + 1;
+if (nextTokenId <= _lastTokenId && _owners[nextTokenId] == address(0)) {
+  _owners[nextTokenId] = from;
+}
+            </code></pre>
+            <table class="table center">
+              <tr>
+                <th>
+                  #100
+                  <br />Owner:
+                  <br />User 3
+                </th>
+                <th>
+                  #101
+                  <br />Owner:
+                  <br />User 4
+                </th>
+                <th>
+                  #102
+                  <br />Owner:
+                  <br />Alice
+                </th>
+                <th>
+                  #103
+                  <br />Owner:
+                  <br />Bob
+                </th>
+                <th>
+                  #104
+                  <br />Owner:
+                  <br />User 5
+                </th>
+              </tr>
+            </table>
+            <br /><hr />
+            <h3>Closing Thoughts</h3>
+            <p>
+              We thank the <a href="https://www.azuki.com/" target="_blank">
+              Azuki</a> team for shedding light on a good way to do 
+              batch minting. ERC721B is an attempt to improve on their 
+              original work. We will be publishing this code sometime in 
+              February 2022. <em>(soon!)</em>
+            </p>
+          </div>
+          <div id="content-02012022" class="content">
             <em>02.01.2021</em>
             <h2>White Paper Draft V2</h2>
             <p>Major changes made to the DAO</p>
