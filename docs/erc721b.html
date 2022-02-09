@@ -23,7 +23,7 @@
     <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="/fonts/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/theme.css?v=2" />
+    <link rel="stylesheet" type="text/css" href="/styles/theme.css?v=3" />
   </head>
   <body>
     <header class="head">
@@ -49,7 +49,7 @@
       </nav>
     </header>
     <main class="body">
-      <div style="margin: 60px 0 20px;padding:50px 200px;border:1px solid #555555">
+      <div class="article-banner">
         <img src="/images/erc721b-banner.png" width="100%" />
       </div>
       
@@ -274,12 +274,14 @@
         implies that Alice owns all 3 of those tokens. The minting
         code for batch minting can be simplified like this.
       </p>
-      <pre><code>
+      <div class="overflow">
+        <pre><code>
 //batch mint:
 _lastTokenId += quantity;
 _balances[to] += quantity;
 _owners[startTokenId] = to;
-      </code></pre>
+        </code></pre>   
+      </div>
       <p>
         Where all we need to do is set the start token id and the 
         owner's balance. Suppose Alice mints tokens #100, #101, 
@@ -321,20 +323,23 @@ _owners[startTokenId] = to;
         the explicit owner of #102 to do so. We could just change 
         the <code>ownerOf</code> function to do the following.
       </p>
-      <pre><code>
+      <div class="overflow">
+        <pre><code>
 //ownerOf:
 for (uint256 id = tokenId; id >= 0; id--) {
   if (_owners[id] != address(0)) {
     return _owners[id];
   }
 }
-      </code></pre>
+        </code></pre>
+      </div>
       <p>
         Then as more transfers are made, the <code>_owners</code> 
         store would normalize back into the original ERC721 way of 
         storing.
       </p>
-      <pre><code>
+      <div class="overflow">
+        <pre><code>
 //transfer:
 _balances[from] -= 1;
 _balances[to] += 1;
@@ -344,7 +349,8 @@ uint256 nextTokenId = tokenId + 1;
 if (nextTokenId <= _lastTokenId && _owners[nextTokenId] == address(0)) {
   _owners[nextTokenId] = from;
 }
-      </code></pre>
+        </code></pre>
+      </div>
       <table class="table center">
         <tr>
           <th>
