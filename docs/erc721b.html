@@ -8,7 +8,7 @@
     <title>ERC721B. Cheap NFT Minting - Bad Baby Bear Bots</title>
     <meta name="description" content="ERC721B is an NFT contract with significant gas savings for minting multiple NFTs in a single transaction." />
     <meta property="og:title" content="Introducing ERC721B. Cheap NFT Minting - Bad Baby Bear Bots" />
-    <meta property="og:image" content="https://www.badbabybearbots.com/images/erc721b-fb-2.png" />
+    <meta property="og:image" content="https://www.badbabybearbots.com/images/erc721b-fb-3.png" />
     <meta property="og:url" content="https://www.badbabybearbots.com/erc721b.html" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="ERC721B is an NFT contract with significant gas savings for minting multiple NFTs in a single transaction." />
@@ -49,6 +49,10 @@
       </nav>
     </header>
     <main class="body">
+      <div style="margin: 60px 0 20px;padding:50px 200px;border:1px solid #555555">
+        <img src="/images/erc721b-banner.png" width="100%" />
+      </div>
+      
       <h1>
         INTRODUCING ERC721B: AN IMPROVEMENT ON THE ERC721A 
         IMPLEMENTATION
@@ -320,9 +324,9 @@ _owners[startTokenId] = to;
       <pre><code>
 //ownerOf:
 for (uint256 id = tokenId; id >= 0; id--) {
-if (_owners[id] != address(0)) {
-return _owners[id];
-}
+  if (_owners[id] != address(0)) {
+    return _owners[id];
+  }
 }
       </code></pre>
       <p>
@@ -338,7 +342,7 @@ _owners[tokenId] = to;
 
 uint256 nextTokenId = tokenId + 1;
 if (nextTokenId <= _lastTokenId && _owners[nextTokenId] == address(0)) {
-_owners[nextTokenId] = from;
+  _owners[nextTokenId] = from;
 }
       </code></pre>
       <table class="table center">
