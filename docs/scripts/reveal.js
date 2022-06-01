@@ -2,7 +2,7 @@
   //sets up the MM SDK
   MetaMaskSDK.setup(blocknet)
   
-  const ipfs = await Ipfs.create()
+  //const ipfs = await Ipfs.create()
 
   //------------------------------------------------------------------//
   // Classes
