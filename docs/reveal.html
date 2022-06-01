@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Reveal Sniper - Bad Baby Bear Bots</title>
+    <meta name="description" content="A collection of 10,000 unique bear bots on the Ethereum blockchain. Own a one and collect rewards." />
+    <meta property="og:title" content="Bad Baby Bear Bots" />
+    <meta property="og:image" content="https://www.badbabybearbots.com/images/banner.png" />
+    <meta property="og:url" content="https://www.badbabybearbots.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A collection of 10,000 unique bear bots on the Ethereum blockchain. Own a one and collect rewards." />
+    <meta name="msapplication-TileColor" content="#e4e4a7" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/theme.css?v=3" />
+    <link rel="stylesheet" type="text/css" href="/styles/reveal.css?v=3" />
+  </head>
+  <body>
+    <main class="body panel">
+      <aside class="panel-left">
+        <header class="panel-head">
+          <a href="/"><img src="/images/logo-bbbb-text.png" /></a>
+        </header>
+        <section class="panel-body">
+          <form id="snipe-form" data-do="snipe" data-on="submit">
+            <div class="form-row">
+              <label>Choose a network</label>
+              <select id="network" class="form-control">
+                <option value="ethereum">Ethereum</option>
+                <option value="polygon">Polygon</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>NFT Contract Address</label>
+              <input id="address" class="form-control" placeholder="eg. 0x..." type="text" value="0x565abc3feaa3bc3820b83620f4bbf16b5c4d47a3" />
+            </div>
+            <div class="form-row">
+              <label>OpenSea API Key</label>
+              <input id="opensea" class="form-control" type="text" value="" />
+            </div>
+            <div class="form-row">
+              <label>Throttle</label>
+              <input id="throttle" class="form-control" type="number" value="100" />
+            </div>
+            <div class="form-row">
+              <label>Use Cache</label>
+              <select id="cache" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <button class="btn btn-large btn-block btn-solid btn-primary">Snipe</button>
+          </form>
+        </section>
+      </aside>
+      <aside class="panel-right">
+        <header class="panel-head">
+          <h1>Reveal Sniper</h1>
+        </header>
+        <section class="panel-body">
+          <section class="progress hide">
+            <div class="progress-bar">
+              <div class="progress-bar-meter bg-success"></div>
+            </div>
+            <div class="progress-status"></div>
+          </section>
+          <section class="results hide">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="page sticky">
+                    <div class="pager">
+                      <a class="back hide btn btn-solid btn-secondary" data-do="page-back" data-on="click" href="javascript:void(0)">
+                        <i class="fas fa-chevron-left"></i>
+                      </a>
+                      <span class="current">1</span>
+                      <a class="next hide btn btn-solid btn-secondary" data-do="page-next" data-on="click" href="javascript:void(0)">
+                        <i class="fas fa-chevron-right"></i>
+                      </a>
+                    </div>
+                  </th>
+                  <th class="sticky">ID</th>
+                  <th class="sticky">Score</th>
+                  <th class="sticky">Rank</th>
+                  <th class="sticky">Price</th>
+                  <th class="sticky">Buy</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </section>   
+        </section>
+      </aside>
+    </main>
+    <footer class="foot"></footer>
+    <template id="template-attribute">
+      <div class="attribute">
+        <h4>{NAME}</h4>
+        <h5>{VALUE}</h5>
+        <h6>{OCCURRANCE} / {TOTAL}</h6>
+        <em>{PERCENT}%</em>
+      </div>
+    </template>
+    <template id="template-modal">
+      <section id="modal" class="modal" data-do="modal-overlay-close" data-on="click">
+        <section class="modal-overlay">
+          <header class="modal-head">
+            <a data-do="modal-close" data-on="click" data-target="#modal" href="javascript:void(0)">&times;</a>
+          </header>
+          <section class="modal-body">
+            <div class="overview">
+              <aside class="left">
+                <img src="{IMAGE}" />
+              </aside>
+              <aside class="right">
+                <span class="badge badge-info">#{RANK}</span>
+                <h1>{NAME}</h1>
+                <h3>#{TOKEN}</h3>
+                <span>{SCORE}</span>
+              </aside>
+            </div>
+            <div class="attributes"></div>
+          </section>
+        </section>
+      </section>
+    </template>
+    <template id="template-table-row">
+      <tr>
+        <td class="image">
+          <a data-do="modal-open" data-on="click" data-id="{ID}" href="javascript:void(0)">
+            <img src="{IMAGE}" width="50" />
+          </a>
+        </td>
+        <td><a data-do="modal-open" data-on="click" data-id="{ID}" href="javascript:void(0)">{ID}</a></td>
+        <td>{SCORE}</td>
+        <td><span class="badge badge-info">#{RANK}</span></td>
+        <td>{PRICE}</td>
+        <td>
+          <a href="https://opensea.io/assets/{NETWORK}/{CONTRACT}/{TOKEN}" target="_blank">
+            <img src="https://opensea.io/static/images/logos/opensea.svg" width="40" />
+          </a>
+        </td>
+      </tr>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+    <script type="text/javascript" src="/scripts/lib/web3.js"></script>
+    <script type="text/javascript" src="/scripts/lib/doon.js"></script>
+    <script type="text/javascript" src="/scripts/lib/notify.js"></script>
+    <script type="text/javascript" src="/scripts/lib/metamask.js"></script>
+    <script type="text/javascript" src="/scripts/lib/theme.js"></script>
+    <script type="text/javascript" src="/scripts/networks.js"></script>
+    <script type="text/javascript" src="/scripts/reveal.js"></script>
+  </body>
+</html>

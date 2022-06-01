@@ -1,3 +1,9 @@
+.article-banner {
+  border:1px solid #555555;
+  margin: 60px 0 20px;
+  padding:50px 200px;
+}
+
 .nav-left aside {
   float: left;
   width: 250px
@@ -47,7 +53,18 @@
   margin: 10px 0 0;
 }
 
+@media(max-width: 767px) {
+  .article-banner {
+    margin: 40px 0 20px;
+    padding: 20px 40px;
+  }
+}
+
 @media(max-width: 420px) {
+  .article-banner {
+    padding: 10px 20px;
+  }
+
   .nav-left aside {
     float: none;
     margin-bottom: 10px;

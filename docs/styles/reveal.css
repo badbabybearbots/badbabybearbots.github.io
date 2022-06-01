@@ -1,0 +1,162 @@
+.btn-primary {
+  text-transform: uppercase;
+}
+
+.pager .current {
+  background-color: #000000;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.panel-head {
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  top: 0;
+}
+
+.panel-body {
+  bottom: 0;
+  overflow: auto;
+  top: 50px;
+}
+
+.panel-head, .panel-body {
+  position: absolute;
+}
+
+.panel-left .panel-head,
+.panel-left .panel-body {
+  left: 0;
+  width: 220px;
+}
+
+.panel-right .panel-head,
+.panel-right .panel-body {
+  left: 220px;
+  right: 0;
+}
+
+.panel-left .panel-head,
+.panel-right .panel-body {
+  background-color: #000000;
+}
+
+.panel-left .panel-body,
+.panel-right .panel-head {
+  background-color: #333333;
+}
+
+.panel-left .panel-head {
+  text-align: center;
+}
+
+.panel-left .panel-head img {
+  margin-top: 12px;
+  width: 200px;
+}
+
+.panel-left .panel-body form {
+  padding: 20px;
+}
+
+.panel-right .panel-head h1 {
+  font-size: 18px;
+  margin: 0 0 0 20px;
+}
+
+.panel-right .panel-body .progress {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.panel-right .panel-body .progress .progress-bar {
+  width: 100%;
+}
+
+.panel-right .panel-body .results {
+  flex-grow: 1;
+}
+
+.panel-right .panel-body .results .table {
+  border: 0;
+}
+
+.panel-right .panel-body .results th {
+  background-color: #212121;
+  color: #CCCCCC;
+  font-size: 11px;
+}
+
+.panel-right .panel-body .results td {
+  border-bottom: 1px solid #333333;
+  padding: 5px;
+  text-align: center;
+}
+
+.panel-right .panel-body .results td.image {
+  padding: 0;
+}
+
+.overview {
+  display: flex;
+}
+
+.overview .left {
+  width: 50%;
+}
+
+.overview .left img {
+  width: 100%;
+}
+
+.overview .right {
+  padding-left: 20px;
+  width: calc(50% - 20px);
+}
+
+.overview .right h1 {
+  margin: 10px 0;
+}
+
+.modal .attributes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal .attributes .attribute {
+  background-color: #000000;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 120px;
+}
+
+.modal .attributes .attribute h4 {
+  font-size: 12px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.modal .attributes .attribute h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-transform: capitalize;
+}
+
+.modal .attributes .attribute h6 {
+  font-size: 11px;
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+.modal .attributes .attribute em {
+  font-size: 10px;
+}

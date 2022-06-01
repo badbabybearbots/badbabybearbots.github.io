@@ -1,3 +1,18 @@
+/* Theme
+----------------------------------------------------------------------*/
+
+:root {
+  --primary: #454545;
+  --secondary: #777777;
+  --info: #004688;
+  --danger: #C20f02;
+  --warning: #C59100;
+  --success: #06A700;
+}
+
+/* HTML Tags
+----------------------------------------------------------------------*/
+
 html, body {
   background-color: #222222;
   color: #FFFFFF;
@@ -49,21 +64,225 @@ li {
   margin-bottom: 10px;
 }
 
-.text-success {
-  color: #06a700
+/* General Classes
+----------------------------------------------------------------------*/
+
+.hide {
+  display: none !important;
 }
 
-.text-warning {
-  color: #c59100
+.container {
+  margin: auto;
+  max-width: 900px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Backgrounds
+----------------------------------------------------------------------*/
+
+.bg-info {
+  background-color: var(--info);
+}
+
+.bg-danger {
+  background-color: var(--danger);
+}
+
+.bg-warning {
+  background-color: var(--warning);
+}
+
+.bg-success {
+  background-color: var(--success);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+/* Texts
+----------------------------------------------------------------------*/
+.text-info {
+  color: var(--info);
 }
 
 .text-danger {
-  color: #c20f02
+  color: var(--danger);
 }
+
+.text-warning {
+  color: var(--warning);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+/* Buttons
+----------------------------------------------------------------------*/
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.btn-large {
+  padding: 16px 32px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-solid,
+.btn-solid:hover,
+.btn-solid:active,
+.btn-solid:visited {
+  border: 0;
+  color: #FFFFFF;
+}
+
+.btn-outline {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.btn-solid.btn-info,
+.btn-solid.btn-info:hover,
+.btn-solid.btn-info:active,
+.btn-solid.btn-info:visited {
+  background-color: var(--info);
+}
+
+.btn-outline.btn-info,
+.btn-outline.btn-info:hover,
+.btn-outline.btn-info:active,
+.btn-outline.btn-info:visited {
+  border-color: var(--info);
+  color: var(--info);
+}
+
+.btn-solid.btn-danger,
+.btn-solid.btn-danger:hover,
+.btn-solid.btn-danger:active,
+.btn-solid.btn-danger:visited {
+  background-color: var(--danger);
+}
+
+.btn-outline.btn-danger,
+.btn-outline.btn-danger:hover,
+.btn-outline.btn-danger:active,
+.btn-outline.btn-danger:visited {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-solid.btn-warning,
+.btn-solid.btn-warning:hover,
+.btn-solid.btn-warning:active,
+.btn-solid.btn-warning:visited {
+  background-color: var(--warning);
+}
+
+.btn-outline.btn-warning,
+.btn-outline.btn-warning:hover,
+.btn-outline.btn-warning:active,
+.btn-outline.btn-warning:visited {
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.btn-solid.btn-success,
+.btn-solid.btn-success:hover,
+.btn-solid.btn-success:active,
+.btn-solid.btn-success:visited {
+  background-color: var(--success);
+}
+
+.btn-outline.btn-success,
+.btn-outline.btn-success:hover,
+.btn-outline.btn-success:active,
+.btn-outline.btn-success:visited {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.btn-solid.btn-primary, 
+.btn-solid.btn-primary:hover, 
+.btn-solid.btn-primary:active, 
+.btn-solid.btn-primary:visited {
+  background-color: var(--primary);
+}
+
+.btn-outline.btn-primary, 
+.btn-outline.btn-primary:hover, 
+.btn-outline.btn-primary:active, 
+.btn-outline.btn-primary:visited {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-solid.btn-secondary, 
+.btn-solid.btn-secondary:hover, 
+.btn-solid.btn-secondary:active, 
+.btn-solid.btn-secondary:visited {
+  background-color: var(--secondary);
+}
+
+.btn-outline.btn-secondary, 
+.btn-outline.btn-secondary:hover, 
+.btn-outline.btn-secondary:active, 
+.btn-outline.btn-secondary:visited {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+/* Forms
+----------------------------------------------------------------------*/
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.form-control {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Tables
+----------------------------------------------------------------------*/
 
 .table {
   border: 1px solid #AAAAAA;
   border-spacing: 0;
+  position: relative;
   width: 100%;
 }
 
@@ -71,6 +290,11 @@ li {
   background-color: #CCCCCC;
   color: #222222;
   padding: 20px 5px;
+}
+
+th.sticky {
+  position: sticky;
+  top: 0;
 }
 
 .table td {
@@ -82,11 +306,288 @@ li {
   text-align: center;
 }
 
-.article-banner {
-  border:1px solid #555555;
-  margin: 60px 0 20px;
-  padding:50px 200px;
+/* Badges
+----------------------------------------------------------------------*/
+
+.badge {
+  background-color: #CCCCCC;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 5px;
 }
+
+.badge.badge-info {
+  background-color: var(--info);
+}
+
+.badge.badge-danger {
+  background-color: var(--danger);
+}
+
+.badge.badge-warning {
+  background-color: var(--warning);
+}
+
+.badge.badge-success {
+  background-color: var(--success);
+}
+
+.badge.badge-primary {
+  background-color: var(--primary);
+}
+
+.badge.badge-secondary {
+  background-color: var(--secondary);
+}
+
+
+/* Notifications
+----------------------------------------------------------------------*/
+
+.notification {
+  bottom: 20px;
+  color: #FFFFFF;
+  font-size: 12px;
+  left: 20px;
+  position: fixed;
+  right: 20px;
+  z-index: 10000;
+}
+
+.notification div {
+  border: 1px solid #222222;
+  margin: auto;
+  max-width: 375px;
+  padding: 20px 30px;
+}
+
+.notification a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.notification div::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  padding-right: 10px;
+}
+
+.notification.notification-info div {
+  background-color: var(--info);
+}
+.notification.notification-info div::before {
+  content: "\f05a";
+}
+
+.notification.notification-danger div {
+  background-color: var(--danger);
+}
+.notification.notification-danger div::before {
+  content: "\f057";
+}
+
+.notification.notification-warning div {
+  background-color: var(--warning);
+}
+.notification.notification-warning div::before {
+  content: "\f071";
+}
+
+.notification.notification-success div {
+  background-color: var(--success);
+}
+.notification.notification-success div::before {
+  content: "\f058";
+}
+
+.notification.notification-primary div {
+  background-color: var(--primary);
+}
+
+.notification.notification-secondary div {
+  background-color: var(--secondary);
+}
+
+/* Alerts
+----------------------------------------------------------------------*/
+
+.alert {
+  padding: 20px 30px;
+}
+
+.alert::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  padding-right: 10px;
+}
+
+.alert-solid {
+  color: #FFFFFF;
+}
+
+.alert-outline {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.alert-info::before {
+  content: "\f05a";
+}
+.alert-solid.alert-info {
+  background-color: var(--info);
+}
+.alert-outline.alert-info {
+  border-color: var(--info);
+  color: var(--info);
+}
+
+.alert-danger::before {
+  content: "\f057";
+}
+.alert-solid.alert-danger {
+  background-color: var(--danger);
+}
+.alert-outline.alert-danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.alert-warning::before {
+  content: "\f071";
+}
+.alert-solid.alert-warning {
+  background-color: var(--warning);
+}
+.alert-outline.alert-warning {
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.alert-success::before {
+  content: "\f058";
+}
+.alert-solid.alert-success {
+  background-color: var(--success);
+}
+.alert-outline.alert-success {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.alert-solid.alert-primary {
+  background-color: var(--primary);
+}
+.alert-outline.alert-primary {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.alert-solid.alert-secondary {
+  background-color: var(--secondary);
+}
+.alert-outline.alert-secondary {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+/* Progress Bars
+----------------------------------------------------------------------*/
+
+.progress-bar {
+  background-color: #CCCCCC;
+  border-radius: 20px;
+  height: 25px;
+}
+
+.progress-bar .progress-bar-meter {
+  border-radius: 20px;
+  height: 100%;
+}
+
+.progress-bar-info .progress-bar-meter {
+  background-color: var(--info);
+}
+
+.progress-bar-danger .progress-bar-meter {
+  background-color: var(--danger);
+}
+
+.progress-bar-warning .progress-bar-meter {
+  background-color: var(--warning);
+}
+
+.progress-bar-success .progress-bar-meter {
+  background-color: var(--success);
+}
+
+.progress-bar-primary .progress-bar-meter {
+  background-color: var(--primary);
+}
+
+.progress-bar-secondary .progress-bar-meter {
+  background-color: var(--secondary);
+}
+
+/* Modal
+----------------------------------------------------------------------*/
+
+.modal {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.65);
+  bottom: 0;
+  display: flex;
+  left: 0;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal .modal-overlay {
+  background-color: #212121;
+  bottom: 20px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  left: 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.modal .modal-head {
+  border-bottom: 1px solid #000000;
+  padding: 10px 20px 5px;
+  text-align: right;
+}
+
+.modal .modal-head a {
+  color: #000000;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.modal .modal-body {
+  flex-grow: 1;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+.modal .modal-foot {
+  border-top: 1px solid #CCCCCC;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* Head
+----------------------------------------------------------------------*/
 
 .head {
   display: flex;
@@ -125,6 +626,25 @@ li {
   text-decoration: underline;
 }
 
+@media(max-width: 420px) {
+  .head {
+    display: block;
+    padding: 10px;
+  }
+  
+  .head nav {
+    display: block;
+    text-align: left;
+  }
+
+  .head nav a:first-child{
+    margin-left: 0;
+  }
+}
+
+/* Body
+----------------------------------------------------------------------*/
+
 .body {
   margin: auto;
   max-width: 900px;
@@ -142,39 +662,17 @@ li {
   padding: 20px 0;
 }
 
+@media(max-width: 420px) {
+  .body {
+    padding: 10px;
+  }
+}
+
+/* Foot
+----------------------------------------------------------------------*/
+
 .foot {
   margin: auto;
   max-width: 1000px;
   padding-top: 40px;
-}
-
-@media(max-width: 767px) {
-  .article-banner {
-    margin: 40px 0 20px;
-    padding: 20px 40px;
-  }
-}
-
-@media(max-width: 420px) {
-  .article-banner {
-    padding: 10px 20px;
-  }
-
-  .head {
-    display: block;
-    padding: 10px;
-  }
-  
-  .head nav {
-    display: block;
-    text-align: left;
-  }
-
-  .head nav a:first-child{
-    margin-left: 0;
-  }
-
-  .body {
-    padding: 10px;
-  }
 }
